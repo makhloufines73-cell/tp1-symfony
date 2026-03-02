@@ -1,11 +1,11 @@
 <?php
 
 namespace App\Controller;
-
+//les routes
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
-
+//controlleur 
 final class AccueilController extends AbstractController
 {
     #[Route('/accueil', name: 'app_accueil')]
@@ -15,6 +15,16 @@ final class AccueilController extends AbstractController
             'controller_name' => 'AccueilController',
         ]);
     }
+     #[Route('/test', name: 'app_test')]
+    public function test(): Response
+    {
+        return $this->render('accueil/test.html.twig', [
+           
+        ]);
+    }
+
+
+
     #[Route('/bonjour/{prenom}', name: 'app_bonjour')]
     public function bonjour(string $prenom): Response
     {
