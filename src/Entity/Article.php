@@ -57,6 +57,9 @@ class Article
     #[ORM\Column(type: 'boolean')]
     private bool $publie = false;
 
+    #[ORM\ManyToOne(inversedBy: 'articles')]
+    private ?categorie $categorie = null;
+
     // Getter et Setter pour l'ID
     public function getId(): ?int
     {
@@ -120,6 +123,18 @@ class Article
     public function setPublie(bool $publie): self
     {
         $this->publie = $publie;
+        return $this;
+    }
+
+    public function getCategorie(): ?categorie
+    {
+        return $this->categorie;
+    }
+
+    public function setCategorie(?categorie $categorie): static
+    {
+        $this->categorie = $categorie;
+
         return $this;
     }
 }
